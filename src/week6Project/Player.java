@@ -1,17 +1,17 @@
 package week6Project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
 //Fields
-	public List<Card> hand;
-	public int score;
-	public String name; 
+	private List<Card> hand = new ArrayList <Card>();
+	private int score;
+	private String name; 
 	
  public	Player () {
-		List<Card> list = this.hand = hand;
-		this.score = 0;
-		String string = this.name = name;
+		this.setScore(0);
+		this.setName(name);
 	}
 //Methods
 		public void describe () {
@@ -22,12 +22,21 @@ public class Player {
 		
 	}
  public Card flip() {
-	 Card hand = this.hand.remove(0);
-		return hand;
+	 Card card = this.hand.remove(0);
+		return card;
 }
   
+public void setName(String name) {
+	this.name = name;
+}
+public void setHand(List<Card> hand) {
+	this.hand = hand;
+}
+public void setScore(int score) {
+	this.score = score;
+}
 public void draw (Deck deck) {
-hand.add(deck.draw ());
+	hand.add(deck.draw ());
 }
  public void incrementScore () {
 	 this.score++;
